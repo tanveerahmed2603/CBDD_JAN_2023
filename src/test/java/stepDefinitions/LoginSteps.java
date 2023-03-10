@@ -1,11 +1,54 @@
 package stepDefinitions;
 
+import base.Config;
+import base.Constants;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
+import pageObject.LoginPage;
 
-public class LoginSteps {
+public class LoginSteps extends Config {
+
+    LoginPage loginpage=new LoginPage(driver);
     @Given("user is in Talentek Homepage")
     public void userIsInTalentekHomepage() {
-        //very page title
-        // Java -selenium
+       loginpage.validateHomePage();
+    }
+
+    @And("user enter valid email address")
+    public void userEnterValidEmailAdress() {
+            loginpage.enterUsername(Constants.username);
+    }
+
+    @And("User enters valid password")
+    public void userEntersValidPassword() {
+        loginpage.enterPassword(Constants.password);
+    }
+
+    @When("user click on login button")
+    public void userClickOnLoginButton() {
+        loginpage.clickLoginButton();
+    }
+
+    @Then("user should be successfully able to login")
+    public void userShouldBeSuccessfullyAbleToLogin() {
+        loginpage.loginSuccess();
+    }
+
+    @And("User enters invalid password")
+    public void userEntersInvalidPassword() {
+        loginpage.enterPassword(Constants.invalidPassword);
+    }
+
+    @Then("user should see {string}")
+    public void userShouldSee(String errorMessage) {
+        loginpage.invalidCredentials(errorMessage);
+    }
+
+    @And("user enter invalid email adress")
+    public void userEnterInvalidEmailAdress() {
+        loginpage.enterUsername(Constants.invalidUsername);
     }
 }
