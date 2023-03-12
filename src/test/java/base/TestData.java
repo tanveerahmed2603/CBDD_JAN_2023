@@ -1,6 +1,6 @@
 package base;
 
-public class Constants {
+public class TestData {
 
     public static String username = "1@gmail.com";
     public static String password = "12345";

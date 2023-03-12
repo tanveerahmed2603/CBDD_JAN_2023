@@ -1,12 +1,11 @@
 package stepDefinitions;
 
 import base.Config;
-import base.Constants;
+import base.TestData;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
 import pageObject.LoginPage;
 
 public class LoginSteps extends Config {
@@ -19,12 +18,12 @@ public class LoginSteps extends Config {
 
     @And("user enter valid email address")
     public void userEnterValidEmailAdress() {
-            loginpage.enterUsername(Constants.username);
+            loginpage.enterUsername(TestData.username);
     }
 
     @And("User enters valid password")
     public void userEntersValidPassword() {
-        loginpage.enterPassword(Constants.password);
+        loginpage.enterPassword(TestData.password);
     }
 
     @When("user click on login button")
@@ -39,7 +38,7 @@ public class LoginSteps extends Config {
 
     @And("User enters invalid password")
     public void userEntersInvalidPassword() {
-        loginpage.enterPassword(Constants.invalidPassword);
+        loginpage.enterPassword(TestData.invalidPassword);
     }
 
     @Then("user should see {string}")
@@ -49,6 +48,6 @@ public class LoginSteps extends Config {
 
     @And("user enter invalid email adress")
     public void userEnterInvalidEmailAdress() {
-        loginpage.enterUsername(Constants.invalidUsername);
+        loginpage.enterUsername(TestData.invalidUsername);
     }
 }
