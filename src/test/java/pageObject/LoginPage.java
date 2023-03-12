@@ -51,7 +51,11 @@ public class LoginPage {
     }
 
     public void invalidCredentials(String errorMsg){
-        Assert.assertEquals(incorrectCredentialMessage.getText(),errorMsg);
+        //➥You have entered an incorrect email or student Id.
+        String error=incorrectCredentialMessage.getText();
+        error=error.substring(error.indexOf('➥')+1);
+        System.out.println("Error message:"+error);
+        Assert.assertEquals(error,errorMsg);
     }
 
 }
