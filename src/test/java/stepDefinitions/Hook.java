@@ -16,6 +16,7 @@ public class Hook extends Config {
 
     @Before
     public void beforeTest(){
+        System.setProperty("webdriver.http.factory", "jdk-http-client");
         driver = setupBrowser(driverType);
         switch(envType){
             case "qa":

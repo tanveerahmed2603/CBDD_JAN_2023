@@ -34,8 +34,8 @@ public class LoginPage {
     public void validateHomePage(){
         Assert.assertEquals(driver.getTitle(),"Sign In");
     }
-    public void enterUsername(String user){
-        username.sendKeys(user);
+    public void enterUsername(String pass){
+        username.sendKeys(pass);
     }
 
     public void enterPassword(String pwd){
@@ -50,12 +50,12 @@ public class LoginPage {
         Assert.assertTrue(welcome.isDisplayed());
     }
 
-    public void invalidCredentials(String errorMsg){
+    public void invalidCredentials(String errorMessage){
         //➥You have entered an incorrect email or student Id.
         String error=incorrectCredentialMessage.getText();
         error=error.substring(error.indexOf('➥')+1);
         System.out.println("Error message:"+error);
-        Assert.assertEquals(error,errorMsg);
+        Assert.assertEquals(error,errorMessage);
     }
 
 }
